@@ -1,3 +1,4 @@
+// Handle resume form submission
 document.getElementById("resumeForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -67,17 +68,57 @@ document.getElementById("resumeForm").addEventListener("submit", function (e) {
   document.getElementById("resume").innerHTML = resumeHTML;
 });
 
+// Use iframe for better printing on mobile and desktop
 document.getElementById("printBtn").addEventListener("click", function () {
-  const originalContent = document.body.innerHTML;
   const resumeContent = document.getElementById("resume").innerHTML;
 
-  document.body.innerHTML = `
-    <div class="resume-output">
-      ${resumeContent}
-    </div>
-  `;
+  // Create a hidden iframe
+  const printFrame = document.createElement("iframe");
+  printFrame.style.position = "absolute";
+  printFrame.style.left = "-9999px";
+  printFrame.style.top = "0";
+  document.body.appendChild(printFrame);
 
-  window.print();
-  document.body.innerHTML = originalContent;
-  window.location.reload(); // Reload to restore event listeners
+  const frameDoc = printFrame.contentWindow.document;
+
+  // Clone in-page styles
+  const styles = Array.from(document.styleSheets)
+    .map((sheet) => {
+      try {
+        return Array.from(sheet.cssRules)
+          .map((rule) => rule.cssText)
+          .join("");
+      } catch (e) {
+        return ""; // Avoid CORS issues
+      }
+    })
+    .join("");
+
+  frameDoc.open();
+  frameDoc.write(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Resume</title>
+        <style>${styles}</style>
+      </head>
+      <body>
+        <div class="resume-output">
+          ${resumeContent}
+        </div>
+      </body>
+    </html>
+  `);
+  frameDoc.close();
+
+  // Wait and print
+  printFrame.onload = function () {
+    printFrame.contentWindow.focus();
+    printFrame.contentWindow.print();
+
+    // Clean up
+    setTimeout(() => {
+      document.body.removeChild(printFrame);
+    }, 1000);
+  };
 });
