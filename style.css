@@ -1,0 +1,386 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #eee;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+header {
+  background: #1f1f1f;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 3px solid #ff3c78;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ff3c78;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #aaa;
+}
+
+.container {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  background: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(255, 60, 120, 0.3);
+}
+
+form label {
+  display: block;
+  margin-top: 1.3rem;
+  font-weight: 600;
+  color: #ff3c78;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.4rem;
+  background: #333;
+  border: 1.5px solid #444;
+  border-radius: 8px;
+  color: #eee;
+  font-size: 1rem;
+  transition: border-color 0.25s ease;
+  font-weight: 500;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #ff3c78;
+  outline: none;
+}
+
+form button {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  width: 100%;
+  background: #ff3c78;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #e03161;
+}
+
+.resume-output {
+  background-color: #fff;
+  padding: 1.8rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  border-left: 5px solid #ff3c78;
+}
+
+.resume-header {
+  text-align: center;
+  background-color: #f0f8ff; 
+  padding: 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.resume-header h2 {
+  color: #0073e6;
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  border-bottom: 1px solid #333;
+}
+
+.resume-columns {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 200px;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.right-column {
+  flex: 2;
+  min-width: 300px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  border-left: 1px solid #ddd;
+}
+
+.resume-output h3 {
+  color: #0073e6;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.2rem;
+  border-image: linear-gradient(to right, #0073e6, transparent) 1;
+  border-bottom: 2px solid;
+  font-weight: 600;
+}
+
+.resume-output p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.resume-output ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.resume-output ul li {
+  margin-bottom: 0.3rem;
+}
+
+.resume-output h3 + p,
+.resume-output h3 + ul {
+  margin-bottom: 1.5rem;
+}
+
+#printBtn {
+  margin: 2rem auto 0;
+  display: block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #ff3c78;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#printBtn:hover {
+  background: #e03161;
+}
+
+footer {
+  background: #1f1f1f;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #bbb;
+  border-top: 3px solid #ff3c78;
+  margin-top: 4rem;
+}
+
+footer h3 {
+  color: #ff3c78;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+footer p {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 1.5rem auto;
+  width: 70%;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem;
+  }
+
+  form button {
+    font-size: 1rem;
+  }
+
+  .resume-output {
+    padding: 1.2rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .resume-output h2 {
+    font-size: 1.8rem;
+  }
+
+  .resume-output h3 {
+    font-size: 1.1rem;
+  }
+
+  .resume-columns {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .container {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
+
+  form input,
+  form textarea {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  form button {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+
+  .resume-output {
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin: 1rem;
+  }
+
+  .resume-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .resume-columns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .resume-output h3 {
+    font-size: 1rem;
+  }
+
+  #printBtn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    width: 90%;
+  }
+
+  footer h3 {
+    font-size: 1.2rem;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    border: 2px solid #333;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  header,
+  footer,
+  form,
+  #printBtn {
+    display: none !important;
+  }
+
+  .resume-output {
+    border: none;
+    box-shadow: none;
+    color: black;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .resume-columns {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .left-column,
+  .right-column {
+    border: none;
+    padding: 0;
+    background: none;
+  }
+
+  .left-column {
+    border-right: 1px solid #333;
+    padding-right: 1rem;
+  }
+
+  .right-column {
+    padding-left: 1rem;
+  }
+
+  .resume-header h2 {
+    font-size: 3rem;
+    color: black;
+  }
+
+  .resume-output h3 {
+    color: black;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .resume-output p,
+  .resume-output ul {
+    color: black;
+  }
+}
